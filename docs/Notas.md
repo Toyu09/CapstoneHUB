@@ -41,5 +41,9 @@ Además el profesor nos dijo que la siguiente semana se podría hacer una reuni�
 - cierre?
 
 #### To-Do
-- levantamienro requerimientos para mvp
-- definir MVP
+- Completar levantamiento de requerimientos detallados
+- Validar alcance del MVP en reunión con profesores
+- Modelar base de datos (diagrama ER)
+- Crear prototipos de UI/UX para validación
+- Setup inicial de repositorio y Docker Compose
+

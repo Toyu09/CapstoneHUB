@@ -34,7 +34,6 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
    - Estudiantes con permisos de carga
 
 5. **Automatización Administrativa**
-   - Auto-generación de firmas
    - Generación de cartas de derecho
    - Documentación oficial automatizada
 
@@ -59,7 +58,7 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 | **Estudiantes** | Alumnos de proyecto Capstone | Plataforma simple para visualizar proyectos disponibles, subir entregas y hacer seguimiento de su progreso. |
 | **Empresas Postulantes** | Organizaciones externas | Proceso de postulación flexible y seguimiento del estado de sus propuestas. |
 | **Docentes Postulantes** | Profesores con proyectos de investigación | Facilidad para proponer proyectos académicos y dar seguimiento. |
-| **Organizaciones Sociales** | ONGs y proyectos comunitarios | Acceso simplificado para postular proyectos de impacto social. |
+| **Organizaciones Sociales** | ONGs o proyectos comunitarios | Acceso simplificado para postular proyectos de impacto social. |
 | **Administradores del Sistema** | IT de la institución | Sistema fácil de desplegar, mantener y monitorear. |
 
 # Restricciones de la Arquitectura {#section-architecture-constraints}
@@ -72,7 +71,7 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 | **Frontend Framework** | Obligatorio usar **NextJS** (React framework) |
 | **Base de Datos** | Obligatorio usar **PostgreSQL** |
 | **Containerización** | El sistema completo debe ser desplegable con **Docker** |
-| **Tipo de Aplicación** | Aplicación **web** (no móvil nativa) |
+| **Tipo de Aplicación** | Aplicación **web** |
 
 ## Restricciones Organizacionales
 
@@ -80,15 +79,14 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 |-------------|-------------|
 | **Equipo de Desarrollo** | Equipo estudiantil con supervisión de profesores |
 | **Timeline MVP** | Definir y desarrollar MVP antes de la siguiente reunión de equipo |
-| **Reunión de Validación** | Presentación con profesores responsables programada para la próxima semana |
+| **Reunión de Validación** | Presentación con profesores responsables programadas |
 
 ## Restricciones de Convenciones
 
 | Restricción | Descripción |
 |-------------|-------------|
-| **Documentación** | Utilizar plantilla arc42 para documentación de arquitectura |
 | **Manual de Usuario** | Obligatorio proporcionar manual de usuario completo |
-| **Formato de Postulación** | Debe ser más flexible que el formato actual en papel |
+| **Formato de Postulación** | Debe ser más flexible que el formato actual manual |
 
 # Alcance y Contexto del Sistema {#section-context-and-scope}
 
@@ -135,9 +133,9 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 | **Postulación de Proyectos** | Empresas, Docentes, ONGs | Formulario flexible para proponer proyectos de ingeniería o consultoría |
 | **Evaluación de Propuestas** | Comité Evaluador | Sistema para revisar y aprobar/rechazar postulaciones |
 | **Asignación de Proyectos** | Profesores Coordinadores | Proceso de matching entre proyectos aprobados y estudiantes |
-| **Gestión de Entregas** | Estudiantes | Portal para subir weekly reports, hitos y entregables finales |
-| **Seguimiento de Proyectos** | Profesores, Estudiantes | Dashboard con estados, avances y próximos hitos |
-| **Generación de Documentos** | Sistema | Auto-generación de firmas, cartas y documentos oficiales |
+| **Gestión de Entregas** | Estudiantes | Portal para subir reportes semanales, hitos y entregables |
+| **Seguimiento de Proyectos** | Profesores, Estudiantes, Empresas, ONGs | Dashboard con estados, avances y próximos hitos |
+| **Generación de Documentos** | Sistema | cartas y documentos oficiales |
 
 ## Contexto Técnico {#_contexto_t_cnico}
 
@@ -187,10 +185,10 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 
 | Interfaz | Tecnología | Descripción |
 |----------|------------|-------------|
-| **Frontend ↔ Backend** | REST API / GraphQL | Comunicación mediante HTTP/HTTPS con JSON |
-| **Backend ↔ Database** | TypeORM / Prisma | ORM para PostgreSQL con migraciones |
-| **Backend ↔ SSO** | OAuth 2.0 / SAML | Autenticación delegada |
-| **Backend ↔ File Storage** | S3-compatible API / Local FS | Almacenamiento de documentos |
+| **Frontend ↔ Backend** | REST API | Comunicación mediante HTTPS |
+| **Backend ↔ Database** | (Indefinido) | ORM para PostgreSQL con migraciones |
+| **Backend ↔ SSO** | (Indefinido) | Autenticación |
+| **Backend ↔ File Storage** | (Infedinido) | Almacenamiento de documentos |
 | **Container Orchestration** | Docker Compose | Orquestación de servicios en desarrollo y producción |
 
 ### Mapeo de Entrada/Salida a Canales
@@ -198,11 +196,11 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 | Entrada/Salida | Canal | Formato |
 |----------------|-------|---------|
 | Postulación de proyecto | HTTPS (Frontend → Backend) | JSON (multipart/form-data para archivos) |
-| Carga de entregas | HTTPS (Frontend → Backend) | Multipart/form-data |
-| Consultas de datos | HTTPS (Frontend ↔ Backend) | JSON (REST) o GraphQL |
-| Notificaciones | Email / Push (Backend → SMTP) | HTML/Plain text |
-| Generación de PDFs | Backend → File Storage | PDF binario |
-| Autenticación | HTTPS (Backend ↔ SSO) | OAuth tokens / SAML assertions |
+| Carga de entregas | HTTPS (Frontend → Backend) | multipart/form-data |
+| Consultas de datos | HTTPS (Frontend ↔ Backend) | JSON |
+| Notificaciones | Email | HTML/Text plano |
+| Generación de PDFs | Backend → File Storage | PDF |
+| Autenticación | HTTPS (Backend ↔ SSO) | --- |
 
 # Estrategia de solución {#section-solution-strategy}
 
@@ -211,28 +209,24 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 ### Stack Principal
 
 1. **Frontend: NextJS**
-   - Server-Side Rendering (SSR) para mejor SEO y performance
-   - Rutas API integradas para BFF (Backend for Frontend) si es necesario
-   - React para componentes reutilizables e interfaz intuitiva
-   - TypeScript para type safety
+   - Server-Side Rendering
+   - React para componentes reutilizables
+   - TypeScript provee type-safety
+   - TailwindCSS para estilos
 
 2. **Backend: NestJS**
    - Arquitectura modular con inyección de dependencias
-   - Decoradores y guards para autenticación/autorización
    - Soporte nativo para TypeScript
-   - Integración fácil con TypeORM para PostgreSQL
+   - Integración con ORMs para PostgreSQL
 
 3. **Base de Datos: PostgreSQL**
    - Base de datos relacional robusta
    - Soporte para transacciones ACID
-   - Extensiones como JSONB para flexibilidad
    - Migraciones versionadas
 
 4. **Containerización: Docker**
    - Docker Compose para orquestación local
-   - Imágenes optimizadas para producción
    - Volúmenes para persistencia de datos
-   - Network isolation entre servicios
 
 ## Enfoque Arquitectónico
 
@@ -251,7 +245,7 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 │  │   Projects  │  │    Users    │  │ Submissions │    │
 │  │   Module    │  │   Module    │  │   Module    │    │
 │  └─────────────┘  └─────────────┘  └─────────────┘    │
-│         Shared: Auth Guards, Validators, DTOs           │
+│         Shared: Validators, DTOs           │
 └────────────────────────┬────────────────────────────────┘
                          │ ORM
 ┌────────────────────────▼────────────────────────────────┐
@@ -265,28 +259,26 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 
 ### Módulos Principales del Backend
 
-1. **Auth Module**: SSO, JWT, Guards, Role-based access control
+1. **Auth Module**: SSO, control de acceso
 2. **Projects Module**: CRUD de proyectos, estados, asignaciones
-3. **Submissions Module**: Entregas, weekly reports, hitos
+3. **Submissions Module**: Entregas, reportes, hitos
 4. **Users Module**: Gestión de usuarios, roles, perfiles
-5. **Evaluation Module**: Comité evaluador, scoring, aprobaciones
-6. **Documents Module**: Generación de PDFs, firmas, cartas
+5. **Evaluation Module**: Comité evaluador, aprobaciones
+6. **Documents Module**: Generación de PDFs
 7. **Notifications Module**: Emails, alertas de deadline
 
 ## Enfoque para Alcanzar Metas de Calidad
 
 | Meta de Calidad | Estrategia de Solución |
 |-----------------|------------------------|
-| **Usabilidad** | - Diseño con Material UI / Tailwind CSS<br>- Flujos guiados con wizards<br>- Feedback visual inmediato<br>- Manual de usuario integrado |
-| **Mantenibilidad** | - Arquitectura modular<br>- Separación frontend/backend<br>- TypeScript en todo el stack<br>- Testing automatizado (Jest, Cypress) |
-| **Portabilidad** | - Docker Compose para desarrollo<br>- Imágenes multi-stage builds<br>- Variables de entorno para configuración<br>- Documentación de deployment |
-| **Seguridad** | - SSO corporativo<br>- JWT con refresh tokens<br>- RBAC (Role-Based Access Control)<br>- Validación en cada capa<br>- HTTPS obligatorio |
-| **Escalabilidad** | - Stateless backend (horizontal scaling)<br>- Connection pooling en DB<br>- Caché con Redis (opcional)<br>- File storage externo (S3-compatible) |
-| **Disponibilidad** | - Health checks en contenedores<br>- Logs centralizados<br>- Backups automatizados de DB<br>- Manejo de errores robusto |
+| **Usabilidad** | Feedback visual inmediato, Manual de usuario integrado |
+| **Mantenibilidad** | Arquitectura modular, Separación de frontend y backend, TypeScript en todo el stack, Testing automatizado |
+| **Portabilidad** | Docker Compose para desarrollo, Variables de entorno para configuración, Documentación de despliegue |
+| **Seguridad** | SSO corporativo, control de acceso con roles, HTTPS es obligatorio |
 
 ## Decisiones Organizacionales
 
-### Definición de MVP (Pre-MVP)
+### Definición de MVP (Preliminar)
 
 El MVP debe permitir:
 1. **Postular proyectos** con formato flexible
@@ -294,18 +286,10 @@ El MVP debe permitir:
 3. **Cierre básico** (subir entregable final)
 
 **Fuera del MVP inicial:**
-- Generación automática de documentos complejos
-- Weekly reports completos
-- Sistema de notificaciones avanzado
+- Generación automática de documentos
+- reportes semanales
+- Notificaciones
 - Galería pública de proyectos históricos
-
-### Próximos Pasos
-
-1. Completar levantamiento de requerimientos detallados
-2. Validar alcance del MVP en reunión con profesores
-3. Modelar base de datos (diagrama ER)
-4. Crear prototipos de UI/UX para validación
-5. Setup inicial de repositorio y Docker Compose
 
 ---
 
@@ -338,7 +322,7 @@ El MVP debe permitir:
 
 ### Motivación
 
-El sistema se divide en cuatro componentes principales desacoplados que se comunican mediante interfaces bien definidas, permitiendo desarrollo, testing y deployment independiente.
+El sistema se divide en cuatro componentes principales desacoplados que se comunican mediante interfaces bien definidas, permitiendo desarrollo, testeo y despliegue independiente.
 
 ### Bloques de construcción contenidos
 
@@ -351,9 +335,9 @@ El sistema se divide en cuatro componentes principales desacoplados que se comun
 
 ### Interfases importantes
 
-- **Frontend ↔ Backend**: REST API (JSON sobre HTTPS)
-- **Backend ↔ Database**: TypeORM (SQL)
-- **Backend ↔ SSO**: OAuth 2.0 / SAML
+- **Frontend ↔ Backend**: REST API
+- **Backend ↔ Database**: PostgreSQL
+- **Backend ↔ SSO**: Autenticación con correo institucional
 
 ---
 
@@ -363,14 +347,14 @@ El sistema se divide en cuatro componentes principales desacoplados que se comun
 
 # Decisiones de Diseño {#section-design-decisions}
 
-| ID | Decisión | Justificación | Consecuencias |
+| N | Decisión | Justificación | Consecuencias |
 |----|----------|---------------|---------------|
-| **DD-001** | Usar NextJS para frontend | Requerimiento del profesor. SSR mejora SEO y performance. | Curva de aprendizaje moderada, pero buen soporte de comunidad. |
-| **DD-002** | Usar NestJS para backend | Requerimiento del profesor. Arquitectura modular escalable. | Estructura de proyecto más compleja que Express simple. |
-| **DD-003** | PostgreSQL como base de datos | Requerimiento del profesor. Relacional, robusto, open-source. | Necesidad de modelar schema cuidadosamente. |
-| **DD-004** | Implementar SSO | Mayor seguridad, mejor UX, integración con sistemas institucionales. | Dependencia de proveedor SSO externo. |
-| **DD-005** | Arquitectura monolítica modular | Simplicidad para MVP, fácil de desplegar con Docker. | Puede requerir refactor a microservicios en el futuro. |
-| **DD-006** | TypeScript en todo el stack | Type safety, mejor mantenibilidad, menos errores en runtime. | Overhead inicial de configuración y tipado. |
+| **001** | Usar NextJS para frontend | Requerimiento del profesor. SSR mejora SEO y performance. | Curva de aprendizaje moderada, pero buen soporte de comunidad. |
+| **002** | Usar NestJS para backend | Requerimiento del profesor. Arquitectura modular escalable. | Estructura de proyecto más compleja que Express simple. |
+| **003** | PostgreSQL como base de datos | Requerimiento del profesor. Relacional, robusto, open-source. | Necesidad de modelar schema cuidadosamente. |
+| **004** | Implementar SSO | Mayor seguridad, mejor UX, integración con sistemas institucionales. | Dependencia del correo institucional. |
+| **005** | Arquitectura monolítica modular | Simplicidad para MVP, fácil de desplegar con Docker. | Puede requerir refactor a microservicios en el futuro. |
+| **006** | TypeScript en todo el stack | Type safety, mejor mantenibilidad, menos errores en runtime. | Overhead inicial de configuración y tipado. |
 
 ---
 
@@ -379,10 +363,9 @@ El sistema se divide en cuatro componentes principales desacoplados que se comun
 | Riesgo | Probabilidad | Impacto | Mitigación |
 |--------|--------------|---------|------------|
 | **Integración SSO no disponible a tiempo** | Media | Alto | Implementar autenticación básica con JWT como fallback temporal |
-| **Alcance del MVP no claro** | Alta | Alto | Realizar reunión de validación con profesores ASAP |
-| **Formato de postulación flexible muy complejo** | Media | Medio | Usar formularios dinámicos con react-hook-form + JSON schema |
-| **Generación de documentos oficiales compleja** | Media | Medio | Dejar para post-MVP, priorizar funcionalidad core |
-| **Equipo sin experiencia en NestJS/NextJS** | Alta | Medio | Dedicar tiempo a capacitación inicial y POCs |
+| **Alcance del MVP no claro** | Alta | Alto | Realizar reunión de validación con profesores |
+| **Formato de postulación flexible muy complejo** | Media | Medio | Usar formularios dinámicos con react-hook-form y JSON schemas |
+| **Generación de documentos oficiales compleja** | Media | Medio | Dejar para post-MVP, priorizar funcionalidad principal |
 | **Infraestructura de deployment no definida** | Media | Medio | Documentar deployment con Docker Compose desde el inicio |
 
 ---
@@ -394,7 +377,6 @@ El sistema se divide en cuatro componentes principales desacoplados que se comun
 | **Capstone** | Proyecto de titulación que culmina la carrera de ingeniería |
 | **MVP** | Minimum Viable Product - Producto mínimo viable para validación |
 | **SSO** | Single Sign-On - Sistema de autenticación única |
-| **Weekly Report** | Reporte semanal de avance del proyecto |
 | **Hito** | Entrega parcial programada en el cronograma del proyecto |
 | **Comité Evaluador** | Grupo de profesores que evalúan y aprueban postulaciones |
 | **Postulación** | Propuesta de proyecto presentada por empresas, docentes u ONGs |
@@ -403,11 +385,3 @@ El sistema se divide en cuatro componentes principales desacoplados que se comun
 | **ORM** | Object-Relational Mapping - Mapeo objeto-relacional |
 | **Docker Compose** | Herramienta para definir y ejecutar aplicaciones Docker multi-contenedor |
 
----
-
-**Próximos pasos:**
-1. Validar este draft con el equipo y profesores en la reunión programada
-2. Completar secciones faltantes después de la definición final del MVP
-3. Crear diagramas detallados de componentes y flujos
-4. Definir modelo de datos completo
-5. Establecer cronograma de desarrollo
