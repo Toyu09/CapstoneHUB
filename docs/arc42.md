@@ -98,7 +98,7 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 │   Postulantes   │         │   Postulantes   │         │    Sociales     │
 └────────┬────────┘         └────────┬────────┘         └────────┬────────┘
          │                           │                           │
-         │     Postulación de Proyectos                         │
+         │     Postulación de Proyectos                          │
          └───────────────────────────┼───────────────────────────┘
                                      ▼
                         ┌────────────────────────┐
@@ -107,18 +107,27 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
                         │                        │
                         └───────────┬────────────┘
                                     │
-         ┌──────────────────────────┼──────────────────────────┐
-         │                          │                          │
-         ▼                          ▼                          ▼
-┌─────────────────┐      ┌─────────────────┐      ┌─────────────────┐
-│   Estudiantes   │      │    Profesores   │      │     Comité      │
-│                 │      │   Coordinadores │      │   Evaluador     │
-│ - Ver proyectos │      │                 │      │                 │
-│ - Subir entregas│      │ - Seguimiento   │      │ - Evaluar       │
-│ - Weekly reports│      │ - Gestionar     │      │ - Aprobar       │
-└─────────────────┘      └─────────────────┘      └─────────────────┘
-         │                          │                          │
-         └──────────────────────────┼──────────────────────────┘
+                                    ▼
+                           ┌─────────────────┐
+                           │     Comité      │
+                           │   Evaluador     │
+                           │                 │
+                           │ - Evaluar       │
+                           │ - Aprobar       │
+                           └─────────────────┘
+                                    │
+         ┌─────────────────────────────────────────────────────┐
+         │                                                     │
+         ▼                                                     ▼
+┌─────────────────┐                                    ┌─────────────────┐
+│   Estudiantes   │                                    │    Profesores   │      
+│                 │                                    │   Coordinadores │      
+│ - Ver proyectos │                                    │                 │      
+│ - Subir entregas│                                    │ - Seguimiento   │      
+│ - Weekly reports│                                    │ - Gestionar     │      
+└─────────────────┘                                    └─────────────────┘      
+         │                                                     │
+         └─────────────────────────────────────────────────────┘
                                     ▼
                         ┌────────────────────────┐
                         │   Sistema SSO          │
