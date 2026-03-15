@@ -72,44 +72,7 @@ El proyecto CapstoneHUB consiste en el desarrollo de un sistema web para gestion
 
 El sistema será implementado utilizando NextJS para el frontend, NestJS para el backend y PostgreSQL como base de datos, con despliegue mediante Docker. La primera versión del sistema incluirá la postulación de proyectos, la visualización y gestión de proyectos aprobados, y la carga del entregable final por parte de los estudiantes. El desarrollo del MVP se realizará durante el periodo del proyecto y será presentado para validación ante los profesores responsables.
 
-# Cronograma (supuesto a cambios)
+# Cronograma
 
-## Semana 6
-- Creación y revisión de la propuesta
-- Definir la estructura para proyectos. (esto incluye la información necesaria a registrar)
-- Investigación de casos de bancos de proyectos (estructura, informacion, formatos) 
-
-## Semana 7
-- Inicio de diseño de base de datos
-- Inicio de diseño de backend
-
-## Semana 8
-- Inicio de diseño de interfaz
-    - Vistas de Roles
-
-## Semana 9
-- Comienzo de implementación de la interfaz
-- Autenticación para pruebas
-
-## Semana 10
-- SSO con Savio
-
-## Semana 11
-- (por definir)
-
-## Semana 12
-- (por definir)
-
-## Semana 13
-- (por definir)
-
-## Semana 14
-- (por definir)
-
-## Semana 15
-- (por definir)
-
-# Costos estimados del proyecto
-
-
+![[Cronograma (gantt).png]]
 
