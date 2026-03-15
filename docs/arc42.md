@@ -150,13 +150,13 @@ CapstoneHUB es un sistema web de gestión integral para proyectos Capstone que f
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                      Internet/Intranet                       │
+│                      Internet/Intranet                      │
 └──────────────────────────┬──────────────────────────────────┘
                            │ HTTPS
                            ▼
                 ┌──────────────────────┐
-                │   Reverse Proxy      │
-                │   (Nginx/Traefik)    │
+                │   UTB Infra          │
+                │                      │
                 └──────────┬───────────┘
                            │
            ┌───────────────┴───────────────┐
