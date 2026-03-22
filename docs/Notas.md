@@ -47,3 +47,13 @@ Además el profesor nos dijo que la siguiente semana se podría hacer una reuni�
 - Crear prototipos de UI/UX para validación
 - Setup inicial de repositorio y Docker Compose
 
+## 2026-03-22
+
+Referencias para bancos de proyectos:
+
+- https://bpun2022.unal.edu.co/proyectos-madres
+- https://www.obrasximpuestos.com/proyectos/
+- https://www.monteria.gov.co/documentos/431/banco-de-proyectos/
+- https://obrasporimpuestos.renovacionterritorio.gov.co/ObrasImpuestos
+- https://cvs.gov.co/banco-de-proyectos/
+
