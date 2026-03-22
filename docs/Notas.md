@@ -1,4 +1,4 @@
-# Notas proyecto CapstoneHUB
+# Notas (Log) proyecto CapstoneHUB
 
 ## 2026-02-25
 La profesora nos explicó que el sistema debe incluir un banco de proyectos con el listado de proyectos disponibles y en proceso. Además, se planteó permitir que empresas, docentes o proyectos sociales postulen sus propuestas mediante un formato más flexible que el actual, del cual se nos mostró un documento de ejemplo.
@@ -49,7 +49,7 @@ Además el profesor nos dijo que la siguiente semana se podría hacer una reuni�
 
 ## 2026-03-22
 
-Referencias para bancos de proyectos:
+Páginas de bancos de proyectos usadas para estudio:
 
 - https://bpun2022.unal.edu.co/proyectos-madres
 - https://www.obrasximpuestos.com/proyectos/
