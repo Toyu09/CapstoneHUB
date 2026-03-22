@@ -20,6 +20,8 @@ Después de la investigación de varios bancos de proyectos hemos llegado a la c
 
 **Costos estimados**: en este apartado se mostrará el posible costo que tendrá el proyecto.
 
+**Detalles**: en este apartado se verán varios campos importante como lo son objetivos generales, justificación (en caso de ser necesaria), el resultado esperado, beneficiados, metodologías usadas para el proyecto, marco legal (en caso de ser necesaria).
+
 **Anexos**: contenidos vinculados al proyecto, enlaces y/o documentos.
 
 **Observaciones**: comentarios o notas importantes que se reúnen mientras se lleva a cabo o al concluir.
