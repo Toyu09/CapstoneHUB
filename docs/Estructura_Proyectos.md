@@ -1,3 +1,5 @@
+# Estructura de incripción de proyectos
+
 Después de la investigación de varios bancos de proyectos hemos llegado a la conclusión de que las características más importantes son: 
 
 **Código identificador**: un pequeño código para búsqueda rápida del proyecto.
@@ -24,5 +26,11 @@ Después de la investigación de varios bancos de proyectos hemos llegado a la c
 
 **Anexos**: contenidos vinculados al proyecto, enlaces y/o documentos.
 
-**Observaciones**: comentarios o notas importantes que se reúnen mientras se lleva a cabo o al concluir.
+**Observaciones**: comentarios o notas importantes cuando el proyecto está en revisión, así como las que se reúnen mientras se lleva a cabo y al concluir.
 
+### Referencias:
+- https://bpun2022.unal.edu.co/proyectos-madres
+- https://www.obrasximpuestos.com/proyectos/
+- https://www.monteria.gov.co/documentos/431/banco-de-proyectos/
+- https://obrasporimpuestos.renovacionterritorio.gov.co/ObrasImpuestos
+- https://cvs.gov.co/banco-de-proyectos/
