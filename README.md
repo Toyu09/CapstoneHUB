@@ -10,3 +10,10 @@ Estudiantes:
 - Josue Annicchiarico Correa
 - Alejandro Duarte García
 
+Documentos relevantes
+
+- [Notas](./docs/Notas.md)
+- [Propuesta](./docs/Propuesta.md)
+- [Estructura Proyectos](./docs/Estructura_Proyectos.md)
+- [MVP](./docs/MVP.md)
+- [Arc42](./docs/arc42.md)
