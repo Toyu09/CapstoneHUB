@@ -74,5 +74,5 @@ El sistema será implementado utilizando NextJS para el frontend, NestJS para el
 
 # Cronograma
 
-![Cronograma](./docs/Cronograma-gantt.png)
+![Cronograma](./Cronograma-gantt.png)
 
