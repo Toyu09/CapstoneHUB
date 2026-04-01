@@ -57,3 +57,13 @@ Páginas de bancos de proyectos usadas para estudio:
 - https://obrasporimpuestos.renovacionterritorio.gov.co/ObrasImpuestos
 - https://cvs.gov.co/banco-de-proyectos/
 
+## 2026-04-01
+
+- Inicio de trabajo en backend y db
+	- backend: crear, listar, ver, editar estado
+
+
+- el proponente puede también ser una empresa?
+- preguntar si los profesores cumplen simpre un mismo rol (ejemplo el profe x es simpre cordinador pero nunca director)
+- verificar si se tiene que poner apartado para el rol de cada etudiante
+- 
